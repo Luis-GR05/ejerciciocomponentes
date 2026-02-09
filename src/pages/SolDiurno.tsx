@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import FormInput from '../componentes/componentesForm/formInput';
 
@@ -64,3 +65,14 @@ export default function SolDiurno() {
     </div>
   );
 }
+=======
+const SolDiurno = () => {
+  return (
+    <div className='bg-white w-full'>
+      <h1>Apartado Solicitud Dia - Diurno</h1>
+    </div>
+  )
+}
+
+export default SolDiurno
+>>>>>>> ce2739d055df1f69b3dc11a719fd66e0c45fb4b6
