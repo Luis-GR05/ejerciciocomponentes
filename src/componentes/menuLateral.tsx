@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import miImagen from "../assets/img/logo.png";
 
 interface MenuLateralProps {
@@ -5,15 +6,15 @@ interface MenuLateralProps {
   cerrar: () => void;
 }
 
-export default function MenuLateral({ abierto, cerrar }: MenuLateralProps) {
-  const navItems = [
-    "Sol. día diurno",
-    "Sol. día vespertino",
-    "Mi Perfil",
-    "Mis días Solicitados",
-    "Mis ausencias",
-  ];
+const navItems = [
+  { label: "Sol. día diurno", to: "/sol-diurno" },
+  { label: "Sol. día vespertino", to: "/sol-vespertino" },
+  { label: "Mi Perfil", to: "/perfil" },
+  { label: "Mis días Solicitados", to: "/dias-solicitados" },
+  { label: "Mis ausencias", to: "/ausencias" },
+];
 
+export default function MenuLateral({ abierto, cerrar }: MenuLateralProps) {
   return (
     <>
       {abierto && (
@@ -37,13 +38,19 @@ export default function MenuLateral({ abierto, cerrar }: MenuLateralProps) {
 
         <nav className="p-4 space-y-2 text-sm">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="block px-3 py-2 rounded text-gray-600 hover:bg-gray-100"
+            <NavLink
+              key={item.to}
+              to={item.to}
+              onClick={cerrar}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded ${isActive
+                  ? "bg-blue-600 text-white font-medium"
+                  : "text-gray-600 hover:bg-gray-100"
+                }`
+              }
             >
-              {item}
-            </a>
+              {item.label}
+            </NavLink>
           ))}
         </nav>
       </aside>
