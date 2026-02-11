@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { FaCheck } from "react-icons/fa6";
+import { RxCross2 } from "react-icons/rx";
 
 interface Ausencia {
   periodoInicio: string;
@@ -27,7 +29,6 @@ const Ausencias = () => {
     <div className="max-w-6xl mx-auto bg-white rounded-lg shadow p-8">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold flex items-center gap-2">
-          <span className="text-xl">📋</span>
           Historial de Ausencias Justificadas
         </h2>
         <button
@@ -66,17 +67,17 @@ const Ausencias = () => {
                 </td>
                 <td className="py-3 px-4 text-center">
                   <span className={ausencia.anexoV ? "text-green-600 font-bold" : "text-red-500 font-bold"}>
-                    {ausencia.anexoV ? "✓" : "✗"}
+                    {ausencia.anexoV ? <FaCheck /> : <RxCross2 />}
                   </span>
                 </td>
                 <td className="py-3 px-4 text-center">
                   <span className={ausencia.adjuntos ? "text-green-600 font-bold" : "text-red-500 font-bold"}>
-                    {ausencia.adjuntos ? "✓" : "✗"}
+                    {ausencia.adjuntos ? <FaCheck /> : <RxCross2 />}
                   </span>
                 </td>
                 <td className="py-3 px-4 text-center">
                   <button className="text-blue-600 hover:text-blue-800 hover:underline text-sm flex items-center gap-1 mx-auto">
-                    📄 Justificar día
+                    Justificar día
                   </button>
                 </td>
               </tr>
