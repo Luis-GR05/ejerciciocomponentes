@@ -5,7 +5,7 @@ import BotonCancelar from '../componentes/componentesForm/botonCancelar';
 
 export default function SolicitarDia() {
   const [fechaCabecera, setFechaCabecera] = useState("Seleccione una fecha");
-  
+
   const [errorTel, setErrorTel] = useState("");
   const [errorHoras, setErrorHoras] = useState("");
 
@@ -38,10 +38,10 @@ export default function SolicitarDia() {
       </div>
 
       <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={(e) => e.preventDefault()}>
-        
-        <FormInput 
-          label="Día Solicitado (dd/mm/yyyy)" 
-          type="date" 
+
+        <FormInput
+          label="Día Solicitado (dd/mm/yyyy)"
+          type="date"
           onChange={(e) => setFechaCabecera(e.target.value)}
         />
 
@@ -62,14 +62,13 @@ export default function SolicitarDia() {
           <label className="text-sm text-gray-700 mb-1">Turno</label>
           <select className="border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
             <option value="diurno">Diurno</option>
-            <option value="vespertino">Vespertino</option>
           </select>
         </div>
 
         <div>
-          <FormInput 
-            label="Núm. Horas Afectadas" 
-            type="number" 
+          <FormInput
+            label="Núm. Horas Afectadas"
+            type="number"
             onChange={manejarValidacionHoras}
           />
           {errorHoras && <p className="text-red-500 text-xs mt-1 font-semibold">{errorHoras}</p>}
@@ -78,7 +77,7 @@ export default function SolicitarDia() {
         <FormInput label="Núm. días permisos en el centro" type="number" />
 
         <div className="md:col-span-2 p-4 bg-gray-50 rounded-lg">
-           <label className="flex items-center gap-3 text-sm font-medium cursor-pointer">
+          <label className="flex items-center gap-3 text-sm font-medium cursor-pointer">
             <input type="checkbox" className="w-4 h-4 text-blue-600" />
             Estoy solicitando un día de permiso no retribuido
           </label>
